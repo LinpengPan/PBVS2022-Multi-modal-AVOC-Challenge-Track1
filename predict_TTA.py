@@ -196,7 +196,7 @@ def main():
 
     predict_all, dict = predictCan(config, model, dataloader, logger, config.test.ttaNum)
     os.makedirs('./result', exist_ok=True)
-    csv_writer('./result/results1.csv', dict)
+    csv_writer('./result/results.csv', dict)
 
 
 if __name__ == '__main__':
