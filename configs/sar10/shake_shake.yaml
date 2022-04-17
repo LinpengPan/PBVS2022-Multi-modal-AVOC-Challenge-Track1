@@ -1,0 +1,77 @@
+device: cuda
+frozen: False
+dataset:
+  name: SAR10
+  dataset_dir: "/media/disk1/ligongzhe/Dataset/SAR/train_images/SAR_copy/"
+  dataset_dir_val: "/media/disk1/ligongzhe/Dataset/sar2022/val/"
+model:
+  type: sar10
+  name: shake_shake
+  init_mode: kaiming_fan_out
+  shake_shake:
+    depth: 26
+    initial_channels: 32
+train:
+  seed: 0
+  precision: O0
+  batch_size: 128
+  subdivision: 1
+  optimizer: sgd
+  base_lr: 0.1
+  momentum: 0.9
+  nesterov: True
+  weight_decay: 1e-4
+  output_dir: experiments/sar2022/plp/exp09_test
+  log_period: 20
+  checkpoint_period: 20
+  val_ratio: 0.
+  val_period: 0
+  use_test_as_val: True
+  use_tensorboard: True
+  distributed: False
+  checkpoint: ''
+  dataloader:
+    num_workers: 4
+    drop_last: True
+    pin_memory: False
+validation:
+  batch_size: 256
+  dataloader:
+    num_workers: 4
+    drop_last: False
+    pin_memory: False
+test:
+  batch_size: 1
+  dataset_dir: '/media/disk1/ligongzhe/Dataset/sar2022/valid/'
+  checkpoint: '/media/disk1/ligongzhe/workspace/pytorch-cla-bk/experiments/sar2022/plp/exp09_balance_lr_0.01/checkpoint_00010.pth'
+  ttaNum: 12
+scheduler:
+  epochs: 100
+  type: cosine
+  lr_min_factor: 0.
+  warmup:
+    epochs: 5
+augmentation:
+  use_filter: False
+  use_random_crop: False
+  use_random_horizontal_flip: True
+  use_cutout: False
+  use_random_erasing: False
+  use_dual_cutout: False
+  use_mixup: True
+  use_ricap: False
+  use_cutmix: False
+  use_label_smoothing: False
+  random_crop:
+    padding: 4
+    fill: 0
+    padding_mode: constant
+  random_horizontal_flip:
+    prob: 0.5
+tensorboard:
+  train_images: True
+  val_images: True
+  model_params: True
+
+
+
