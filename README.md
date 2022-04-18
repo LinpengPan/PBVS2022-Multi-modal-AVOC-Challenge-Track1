@@ -46,7 +46,7 @@ python train.py --config ./configs/sar10/shake_shake_fc.yaml
 python predict_TTA.py 
 ```
 
-- You need to change the value of  “dataset_dir”, “checkpoint”, under the “dataset” field  in the file “./configs/sar10/shake_shake.yaml”, then you can find the results in file “.result/results.csv”。
+- You need to change the value of  “dataset_dir”, “checkpoint”, under the “test” field  in the file “./configs/sar10/shake_shake.yaml”, then you can find the results in file “.result/results.csv”。
 - You can download the trained model [here](https://drive.google.com/file/d/10eLrUocBHfiBotTtkHWFEmJxR66Fcf6j/view?usp=sharing).
 
 ## Acknowledge
